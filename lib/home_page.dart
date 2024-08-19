@@ -1,9 +1,11 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
+import 'package:rootally_ui_test/challenge_widget.dart';
 import 'package:rootally_ui_test/contants/app_colors.dart';
 import 'package:rootally_ui_test/contants/theme.dart';
 import 'package:rootally_ui_test/heading_widget.dart';
 import 'package:rootally_ui_test/tab_bar_widget.dart';
+import 'package:rootally_ui_test/workout_routine_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -25,7 +27,12 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                TabViewWidget()
+                TabViewWidget(),
+                ChallengeWidget(),
+                SizedBox(
+                  height: 10,
+                ),
+                WorkoutRoutineWidget()
               ],
             )
           ],
