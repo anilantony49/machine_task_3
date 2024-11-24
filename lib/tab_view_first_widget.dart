@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabViewFirstWidget extends StatelessWidget {
   const TabViewFirstWidget({super.key});
@@ -8,8 +9,8 @@ class TabViewFirstWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 116,
-          width: 315,
+          height: 116.h,
+          width: 315.w,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(11),
@@ -17,8 +18,8 @@ class TabViewFirstWidget extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                height: 116,
-                width: 133,
+                height: 116.h,
+                width: 133.w,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -49,28 +50,28 @@ class TabViewFirstWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 12, left: 14),
+                    padding:  EdgeInsets.only(top: 12.h, left: 14.w),
                     child: Container(
-                      width: 147,
-                      height: 18,
-                      child: const Text(
+                      width: 147.w,
+                      height: 18.h,
+                      child: Text(
                         'Fitness Assessment',
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 14.w,
                             fontWeight: FontWeight.w600,
                             color: Color(0xFF222E58)),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 5, left: 14),
+                    padding: EdgeInsets.only(top: 5.h, left: 14.w),
                     child: Container(
-                      width: 158,
-                      height: 41,
-                      child: const Text(
+                      width: 158.w,
+                      height: 41.h,
+                      child: Text(
                         'Get started on your fitness\ngoals with our physical\nassessment and vital scan',
                         style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 10.w,
                             // height: 15,
                             fontWeight: FontWeight.w500,
                             color: Color(0xFF2A2A2A)),
@@ -78,23 +79,23 @@ class TabViewFirstWidget extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 14, top: 7),
+                    padding: EdgeInsets.only(left: 14.w, top: 7.h),
                     child: Container(
-                      width: 72,
-                      height: 22.41,
-                      child: const Row(
+                      width: 72.w,
+                      height: 22.41.h,
+                      child: Row(
                         children: [
                           Icon(
                             Icons.play_circle_fill_outlined,
                             color: Color(0xFF255FD5),
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 10.w,
                           ),
                           Text(
                             'Start',
                             style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 14.w,
                                 // height: 15,
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF255FD5)),
