@@ -1,51 +1,58 @@
 import 'package:flutter/material.dart';
 
 class ContainerWidget extends StatelessWidget {
-  const ContainerWidget({super.key});
+  final Color color;
+  final String firstLineText;
+  final String secondLineText;
+  const ContainerWidget(
+      {super.key,
+      required this.color,
+      required this.firstLineText,
+      required this.secondLineText});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 147,
       height: 113,
-      decoration: const BoxDecoration(
-          color: Color(0xFFC6D9FF),
-          borderRadius: BorderRadius.all(Radius.circular(11))),
+      decoration: BoxDecoration(
+          color: color,
+          borderRadius: const BorderRadius.all(Radius.circular(11))),
       child: Column(
         children: [
           const SizedBox(
             height: 8,
           ),
-          Container(
+          const SizedBox(
             width: 57,
             height: 57,
-            child: const CircleAvatar(
+            child: CircleAvatar(
               backgroundColor: Colors.white,
             ),
           ),
           const SizedBox(
             height: 4,
           ),
-          Container(
-            width: 87,
+          SizedBox(
+            width: 95,
             height: 33,
-            child: const Center(
+            child: Center(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text.rich(
                   TextSpan(children: [
                     TextSpan(
-                      text: "Cancer 2nd\n", // First part of the text
-                      style: TextStyle(
+                      text: firstLineText, // First part of the text
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         height: 1.0,
                       ),
                     ),
-                    TextSpan(
-                      text: "Opinion", // Centered word
-                      style: TextStyle(
+                     TextSpan(
+                      text: secondLineText, // Centered word
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         height: 1.0,
@@ -62,4 +69,3 @@ class ContainerWidget extends StatelessWidget {
     );
   }
 }
-

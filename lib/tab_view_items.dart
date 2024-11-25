@@ -1,117 +1,77 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rootally_ui_test/tab_view_first_widget.dart';
 import 'package:rootally_ui_test/tab_view_second_widget.dart';
 import 'package:rootally_ui_test/widgets/appointments/container_widget.dart';
+import 'package:rootally_ui_test/widgets/view_all_widget.dart';
 
 class TabViewItems extends StatelessWidget {
-  const TabViewItems({super.key});
-
+  TabViewItems({super.key});
+  final List<Color> containerColor = [
+    const Color(0xFFC6D9FF),
+    const Color(0xFFE9C6FF),
+    const Color(0xFFFFD4C6),
+  ];
+  final List<String> containerFirstLineText = [
+    'Cancer 2nd\n',
+    'Physiotherapy\n',
+    'Fitness\n',
+  ];
+  final List<String> containerSecondLineText = [
+    'Opinion',
+    'Appointment',
+    'Appointment'
+  ];
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: TabBarView(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFFF1F1F9),
-              borderRadius: BorderRadius.circular(23.5),
-            ),
-            height: 303.h,
-            width: 338.w,
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: 15.w, right: 15.w, top: 13.h, bottom: 13.h),
-              child: Column(
-                children: [
-                  const TabViewFirstWidget(),
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  const TabViewSecondWidget(),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Container(
-                    width: 80.w,
-                    height: 22.h,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF232F58),
-                      borderRadius: BorderRadius.circular(23.5),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'View all',
-                        style: TextStyle(
-                            color: const Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12.w),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFFF1F1F9),
-              borderRadius: BorderRadius.circular(23.5),
-            ),
-            height: 303.h,
-            width: 338.w,
-            child: Padding(
-                padding: EdgeInsets.only(
-                    left: 15.w, right: 15.w, top: 13.h, bottom: 13.h),
-                child: 
-                
-                GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      // Number of columns
-                      crossAxisSpacing: 20, // Spacing between columns
-                      mainAxisSpacing: 20, // Spacing between rows
-                       childAspectRatio: 147 / 113,
-                    ),
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      return const ContainerWidget();
-                    })
-                // Column(
-                //   children: [
-                //     const ContainerWidget(),
-
-                //     SizedBox(
-                //       height: 6.h,
-                //     ),
-                //     const ContainerWidget(),
-                //     SizedBox(
-                //       height: 2.h,
-                //     ),
-                //     Container(
-                //       width: 80.w,
-                //       height: 22.h,
-                //       decoration: BoxDecoration(
-                //         color: const Color(0xFF232F58),
-                //         borderRadius: BorderRadius.circular(23.5),
-                //       ),
-                //       child: Center(
-                //         child: Text(
-                //           'View all',
-                //           style: TextStyle(
-                //               color: const Color(0xFFFFFFFF),
-                //               fontWeight: FontWeight.w500,
-                //               fontSize: 12.w),
-                //         ),
-                //       ),
-                //     )
-                //   ],
-                // ),
+          CustomContainer(
+            child: Column(
+              children: [
+                const TabViewFirstWidget(),
+                SizedBox(
+                  height: 6.h,
                 ),
+                const TabViewSecondWidget(),
+                SizedBox(
+                  height: 2.h,
+                ),
+                const ViewAllWidget()
+              ],
+            ),
           ),
-          // Icon(Icons.directions_car, size: 350),
+          CustomContainer(
+            child: Column(
+              children: [
+                Expanded(
+                  child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 20, // Spacing between columns
+                        mainAxisSpacing: 20, // Spacing between rows
+                        childAspectRatio: 147 / 113,
+                      ),
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return ContainerWidget(
+                          firstLineText:
+                              containerFirstLineText[index].toString(),
+                          secondLineText:
+                              containerSecondLineText[index].toString(),
+                          color: containerColor[index],
+                        );
+                      }),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                const ViewAllWidget()
+              ],
+            ),
+          ),
         ],
       ),
     );
